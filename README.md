@@ -1,3 +1,3 @@
 # GameEngine
 
-Inlämningsuppgift till kursen Prog3 - Programmering C och C++
+Inlämningsuppgift till kursen Prog3 - Programmering i C och C++ HT2017
