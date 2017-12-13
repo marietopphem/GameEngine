@@ -11,22 +11,21 @@
 
 #include <iostream>
 
+
 using namespace std;
 
 class Sprite{
 public:
+    ~Sprite();
+    void checkLife();
     
 protected:
     Sprite();
-    ~Sprite();
-    void goForward();
-    void goBackward();
-    void jump();
-    void crawl();
+    
     
 private:
-    int life;
     string name;
+    int life;
     
     
 };

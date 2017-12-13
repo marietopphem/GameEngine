@@ -9,3 +9,8 @@
 #include "Map.hpp"
 
 
+Map::Map(vector <vector <Tile> > matrix){
+    
+    for ( int i = 0 ; i < widht ; i++ )
+        matrix[i].resize(height);
+}

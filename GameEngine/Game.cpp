@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "Game.hpp"
+#include "Player.hpp"
 
 using namespace std;
 
@@ -22,8 +23,17 @@ Game::~Game(){
 void Game::run(){
     
     
+    for(int countdown = 10; countdown>=0; countdown--){
+        // "game starts in" count--; //count down from 10
+        if(countdown == 0){
+            cout << "GO" << endl;
+        }
+        else{
+            cout << "Game starts in " << countdown << endl;
+            
+        }
+    }
     
-    // "game starts in" count--; //count down from 10
     
     while(running()){
         handleEvent();
@@ -61,6 +71,8 @@ void Game::init(const char *title, int xpos, int ypos,int width, int height, boo
 
 void Game::handleEvent(){
     
+    Player *player = nullptr;
+    
     SDL_Event event;
     SDL_PollEvent(&event);
     
@@ -70,35 +82,59 @@ void Game::handleEvent(){
             break;
             
         case SDL_KEYDOWN:
+            int direction;
             cout << "Key pushed" << endl;
             switch( event.key.keysym.sym )
         {
             case SDLK_UP:
+                
+                direction = 2;
+                player -> makeMove(direction);
+                
                 cout << "upkey" << endl;
                 //jump
                 //gCurrentSurface = gKeyPressSurfaces[ SDL_KEY_PRESS_SURFACE_UP ];
                 break;
                 
             case SDLK_DOWN:
+                
+                direction = 4;
+                player ->makeMove(direction);
+                
                 cout << "downkey" << endl;
                 //crawl
                 //gCurrentSurface = gKeyPressSurfaces[ SDL_KEY_PRESS_SURFACE_DOWN ];
                 break;
                 
             case SDLK_LEFT:
+                
+                direction = 1;
+                player -> makeMove(direction);
+                
                 cout << "leftkey" << endl;
                 //goLeft
                 //gCurrentSurface = gKeyPressSurfaces[ SDL_KEY_PRESS_SURFACE_LEFT ];
                 break;
                 
             case SDLK_RIGHT:
+                
+                direction = 3;
+                player ->makeMove(direction);
+                
                 cout << "rightkey" << endl;
                 //goRight
                 //gCurrentSurface = gKeyPressSurfaces[ SDL_KEY_PRESS_SURFACE_RIGHT ];
                 break;
+              
+            case SDLK_SPACE:
+                cout << "Space pressed" << endl;
+                player -> shoot();
+                
+                break;
                 
             case SDLK_p:
                 cout << "p button pressed"<< endl;
+                
                 //paus game
                 break;
                 

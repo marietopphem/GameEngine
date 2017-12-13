@@ -10,12 +10,21 @@
 #define Tile_hpp
 
 #include <stdio.h>
+#include "Sprite.hpp"
 
 class Tile{
 public:
     Tile();
     ~Tile();
 
+private:
+    
+    int xPos;
+    int yPos;
+    
+    bool occupied;
+    
+    //Sprite objectOnMap; // om något existerar på Tilen så är den True;
 };
 
 

@@ -7,10 +7,20 @@
 //
 
 #include "Button.hpp"
+#include <SDL2/SDL.h>
+#include <iostream>
 
-Button::Button(){
+Button::Button(int x, int y, int w, int h, std::string txt){
     
 }
 Button::~Button(){
+    
+}
+
+void Button::mouseUp(const SDL_Event& eve){
+   
+}
+
+void Button::drawButton(){
     
 }

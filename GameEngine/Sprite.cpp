@@ -16,18 +16,11 @@ Sprite::~Sprite(){
     
 }
 
-void Sprite::goForward(){
+void Sprite::checkLife(){
     
-}
-
-void Sprite::goBackward(){
-    
-}
-
-void Sprite::jump(){
-    
-}
-
-void Sprite::crawl(){
-    
+    if(life == 0){
+        // if (enemy){disapear} else{Game Over} Använd funktionen remove() som finns i klassen Game
+    } else{
+        //Contiune Game
+    }
 }

@@ -9,19 +9,28 @@
 #ifndef Button_hpp
 #define Button_hpp
 
-#include <stdio.h>
+#include <string>
+#include <SDL2/SDL.h>
+
+
 
 class Button{
 public:
     ~Button();
-    Button();
+
     
     void mouseDown();
-    void mouseUp();
+    void mouseUp(const SDL_Event& eve);
+    void drawButton();
+    
+    virtual void perform(Button* source) {}
     
 protected:
+    Button(int x, int y, int w, int h, std::string txt);
     
 private:
+    
+    bool isDown = false;
     
 };
 
