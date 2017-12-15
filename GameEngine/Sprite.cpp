@@ -7,8 +7,13 @@
 //
 
 #include "Sprite.hpp"
+#include "Game.hpp"
 
-Sprite::Sprite(){
+using namespace std;
+
+Sprite::Sprite(SDL_Renderer* ren, int life, int xpos, int ypos) {
+    
+    
     
 }
 

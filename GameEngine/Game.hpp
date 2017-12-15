@@ -29,6 +29,9 @@ public:
         return isRunning;
     };
     
+    
+    
+    
     void add(); // lägg till ny sprite
     void remove(); // ta bort sprite
     void tick(); // vad har en sprite gjort under den senaste loopen? Ska kanske ligga i Sprite-klassen

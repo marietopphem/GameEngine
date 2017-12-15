@@ -13,12 +13,16 @@
 
 using namespace std;
 
-int Enemy::randomization(){
-    int x, y;
-    x = 4;
-    y = 1;
+DynamicSprite *dynSpri = nullptr;
+
+Enemy::Enemy(SDL_Renderer* ren, int life, int xpos, int ypos) : DynamicSprite(ren, life, xpos, ypos){
     
-    int randomizieded = (rand() % static_cast<int>(x - y + 1));
+    life = 1;
+}
+
+int Enemy::randomization(){
+    
+    int randomizieded = (rand() % 4);
     
     cout << randomizieded << endl;
     return randomizieded;
@@ -26,20 +30,20 @@ int Enemy::randomization(){
 }
 
 void Enemy::move(){
-    
     int direction = randomization();
-    
-    if (direction == 1){
-        // goLeft();
-        
-    } else if (direction == 2){
+    cout << "EmenyMove" << endl;
+    int x = 19;
+    if (direction == 0){
+        cout << "direction left" << endl;
+        dynSpri -> goLeft(x);
+    } else if (direction == 1){
         // goUp();
-        
-    } else if (direction == 3){
+    } else if (direction == 2){
         // goRight();
-        
     } else {
         // goDown();
     }
-    
 }
+
+
+

@@ -9,7 +9,9 @@
 #ifndef Sprite_hpp
 #define Sprite_hpp
 
+#include <SDL2/SDL.h>
 #include <iostream>
+#include "Tile.hpp"
 
 
 using namespace std;
@@ -20,12 +22,15 @@ public:
     void checkLife();
     
 protected:
-    Sprite();
+    Sprite(SDL_Renderer* ren, int life, int xpos, int ypos);
     
     
 private:
-    string name;
+    
+    SDL_Renderer* ren;
     int life;
+    int xpos;
+    int ypos;
     
     
 };

@@ -10,14 +10,15 @@
 #define Player_hpp
 
 #include <stdio.h>
+#include "DynamicSprite.hpp"
 
-class Player{
+class Player : public DynamicSprite{
     
 public:
     void makeMove(int direction);
-    void shoot();
+    void shoot(); // or drop();
     
-    Player();
+    Player(SDL_Renderer* ren, int life, int xpos, int ypos);
     ~Player();
 };
 

@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Game.hpp"
 #include "Player.hpp"
+#include "Enemy.hpp"
 
 using namespace std;
 
@@ -22,6 +23,12 @@ Game::~Game(){
 
 void Game::run(){
     
+    const int FPS = 60;
+    
+    const int frameDelay = 1000/FPS;
+    
+    Uint32 frameStart;
+    int frameTime;
     
     for(int countdown = 10; countdown>=0; countdown--){
         // "game starts in" count--; //count down from 10
@@ -36,9 +43,19 @@ void Game::run(){
     
     
     while(running()){
+        
+        frameStart = SDL_GetTicks();
+        
         handleEvent();
         update();
         render();
+        
+        
+        frameTime = SDL_GetTicks()-frameStart;
+        
+        if(frameDelay > frameTime){
+            SDL_Delay(frameDelay - frameTime);
+        }
     }
     
     clean();
@@ -63,11 +80,15 @@ void Game::init(const char *title, int xpos, int ypos,int width, int height, boo
         renderer = SDL_CreateRenderer(window, -1, 0);
         
         isRunning = true;
+        
+        
     }else{
         isRunning = false;
     }
     
 }
+
+
 
 void Game::handleEvent(){
     
@@ -138,6 +159,7 @@ void Game::handleEvent(){
                 //paus game
                 break;
                 
+                
             default:
                 //gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ];
                 break;
@@ -153,6 +175,10 @@ void Game::handleEvent(){
             
         case SDL_MOUSEBUTTONUP:
             cout << "mouseclicked up" << endl;
+            
+            // were has I clicked, is it on a the startButton
+            
+            
             //choose, start game
             break;
             
@@ -163,8 +189,13 @@ void Game::handleEvent(){
 }
 
 void Game::update(){
+    
+    Enemy *enemy = nullptr;
     count++;
-    //cout << count << endl;
+    cout << count << endl;
+    if(count % 10 == 0){
+        enemy -> move();
+    }
 }
 
 void Game::render(){
@@ -182,6 +213,12 @@ void Game::clean(){
     cout << "Game Cleaned!" << endl;
 }
 
+void add(){
+    
+    
+    
+    
+}
 
 
 

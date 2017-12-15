@@ -10,11 +10,16 @@
 #define Enemy_hpp
 
 #include <stdio.h>
+#include "DynamicSprite.hpp"
 
-class Enemy{
+class Enemy : public DynamicSprite{
 public:
+    Enemy(SDL_Renderer* ren, int life, int xpos, int ypos);
+    
     int randomization();
     void move();
+    
+    
     
 };
 

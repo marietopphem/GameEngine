@@ -11,21 +11,25 @@
 
 #include <iostream>
 #include "Sprite.hpp"
+#include "Tile.hpp"
 
-class DynamicSprite {//}: public Sprite{
+class DynamicSprite : public Sprite{
     
 public:
-    DynamicSprite();
+    DynamicSprite(SDL_Renderer* ren, int life, int xpos, int ypos);
     ~DynamicSprite();
     void goRight(int x);
     void goLeft(int x);
     void goDown(int y);
     void goUp(int y);
     
+    bool isTileOccupied();
+    
     
     
     
 private:
+    
     
     
     

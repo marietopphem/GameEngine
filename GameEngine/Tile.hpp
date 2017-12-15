@@ -19,12 +19,9 @@ public:
 
 private:
     
-    int xPos;
-    int yPos;
-    
     bool occupied;
     
-    //Sprite objectOnMap; // om något existerar på Tilen så är den True;
+    //Sprite &objectOnMap; // om något existerar på Tilen så är den True;
 };
 
 

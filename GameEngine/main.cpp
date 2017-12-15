@@ -20,11 +20,10 @@ Game *game = nullptr;
 
 int main(int argc, const char * argv[]) {
     
+    
     game = new Game();
     
-    game -> init("Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, true);
-    
-    
+    game -> init("Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, true);
     
     
     game -> run();
