@@ -12,11 +12,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2_ttf/SDL_ttf.h>
 #include <SDL2_image/SDL_image.h>
-
+#include "Player.hpp"
 
 using namespace std;
 
 Game *game = nullptr;
+
+
 
 int main(int argc, const char * argv[]) {
     
@@ -25,6 +27,7 @@ int main(int argc, const char * argv[]) {
     
     game -> init("Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, true);
     
+    game -> add(new Player(3, 300, 300, game));
     
     game -> run();
     

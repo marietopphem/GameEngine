@@ -15,9 +15,12 @@
 class Box : public StaticSprite{
 public:
     
-    Box(SDL_Renderer* ren, int life, int xpos, int ypos);
+    Box(int life, int xpos, int ypos);
     ~Box();
     void blastBox();
+    
+    void drawSprite(SDL_Renderer *renderer) const override;
+    void updateSprite() override;
     
 private:
     

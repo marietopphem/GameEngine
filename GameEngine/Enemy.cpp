@@ -15,7 +15,7 @@ using namespace std;
 
 DynamicSprite *dynSpri = nullptr;
 
-Enemy::Enemy(SDL_Renderer* ren, int life, int xpos, int ypos) : DynamicSprite(ren, life, xpos, ypos){
+Enemy::Enemy( int life, int xpos, int ypos) : DynamicSprite(life, xpos, ypos){
     
     life = 1;
 }
@@ -43,6 +43,16 @@ void Enemy::move(){
     } else {
         // goDown();
     }
+}
+
+void Enemy::drawSprite(SDL_Renderer *renderer) const{
+    
+    
+}
+
+void Enemy::updateSprite(){
+
+
 }
 
 

@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "DynamicSprite.hpp"
+#include "Game.hpp"
 
 class Player : public DynamicSprite{
     
@@ -18,8 +19,16 @@ public:
     void makeMove(int direction);
     void shoot(); // or drop();
     
-    Player(SDL_Renderer* ren, int life, int xpos, int ypos);
+    Player(int life, int xpos, int ypos, Game *game);
     ~Player();
+    
+    void drawSprite(SDL_Renderer *renderer) const override;
+    void updateSprite() override;
+
+    
+private:
+    
+    
 };
 
 #endif /* Player_hpp */

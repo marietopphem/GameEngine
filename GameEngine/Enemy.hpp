@@ -9,16 +9,18 @@
 #ifndef Enemy_hpp
 #define Enemy_hpp
 
-#include <stdio.h>
+#include <iostream>
 #include "DynamicSprite.hpp"
 
 class Enemy : public DynamicSprite{
 public:
-    Enemy(SDL_Renderer* ren, int life, int xpos, int ypos);
+    Enemy( int life, int xpos, int ypos);
     
     int randomization();
     void move();
     
+    void drawSprite(SDL_Renderer *renderer) const override;
+    void updateSprite() override;
     
     
 };

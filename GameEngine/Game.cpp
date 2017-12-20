@@ -21,6 +21,16 @@ Game::~Game(){
     
 }
 
+
+
+void Game::add(Sprite* sprite){
+    
+    spriteList.push_back(sprite);
+    
+    
+}
+
+
 void Game::run(){
     
     const int FPS = 60;
@@ -40,6 +50,8 @@ void Game::run(){
             
         }
     }
+    
+    
     
     
     while(running()){
@@ -78,6 +90,10 @@ void Game::init(const char *title, int xpos, int ypos,int width, int height, boo
         }
         
         renderer = SDL_CreateRenderer(window, -1, 0);
+       
+        if(renderer){
+            cout << "Renderer created" << endl;
+        }
         
         isRunning = true;
         
@@ -161,7 +177,7 @@ void Game::handleEvent(){
                 
                 
             default:
-                //gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ];
+                
                 break;
         }
             
@@ -176,10 +192,6 @@ void Game::handleEvent(){
         case SDL_MOUSEBUTTONUP:
             cout << "mouseclicked up" << endl;
             
-            // were has I clicked, is it on a the startButton
-            
-            
-            //choose, start game
             break;
             
         default:
@@ -201,6 +213,12 @@ void Game::update(){
 void Game::render(){
     
     SDL_RenderClear(renderer);
+    // Skriv vad som ska ritas ut
+    
+    for(auto const& sprite: spriteList){
+        sprite -> drawSprite(renderer);
+    }
+    
     SDL_RenderPresent(renderer);
     
 }
@@ -213,12 +231,11 @@ void Game::clean(){
     cout << "Game Cleaned!" << endl;
 }
 
-void add(){
-    
-    
-    
+SDL_Renderer* Game::getRenderer(){
+    return renderer;
     
 }
+
 
 
 

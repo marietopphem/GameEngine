@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Sprite::Sprite(SDL_Renderer* ren, int life, int xpos, int ypos) {
+Sprite::Sprite( int life, int xpos, int ypos) {
     
     
     
@@ -19,6 +19,10 @@ Sprite::Sprite(SDL_Renderer* ren, int life, int xpos, int ypos) {
 
 Sprite::~Sprite(){
     
+}
+
+int Sprite::getLife(){
+    return life;
 }
 
 void Sprite::checkLife(){

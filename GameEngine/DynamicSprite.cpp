@@ -12,7 +12,7 @@
 
 Tile *tile = nullptr;
 
-DynamicSprite::DynamicSprite(SDL_Renderer* ren, int life, int xpos, int ypos) : Sprite(ren, life, xpos, ypos){
+DynamicSprite::DynamicSprite( int life, int xpos, int ypos) : Sprite( life, xpos, ypos){
     
 }
 

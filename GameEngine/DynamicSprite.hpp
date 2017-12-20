@@ -16,7 +16,7 @@
 class DynamicSprite : public Sprite{
     
 public:
-    DynamicSprite(SDL_Renderer* ren, int life, int xpos, int ypos);
+    DynamicSprite( int life, int xpos, int ypos);
     ~DynamicSprite();
     void goRight(int x);
     void goLeft(int x);

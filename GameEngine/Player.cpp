@@ -9,6 +9,9 @@
 #include "Player.hpp"
 #include <iostream>
 #include <SDL2/SDL.h>
+#include "Game.hpp"
+
+
 
 using namespace std;
 
@@ -53,8 +56,32 @@ void Player::shoot(){
     
 }
 
-Player::Player(SDL_Renderer* ren, int life, int xpos, int ypos): DynamicSprite(ren, life, xpos, ypos){
+Player::Player(int life, int xpos, int ypos, Game *game): DynamicSprite( life, xpos, ypos){
     
-    life = 3;
+    SDL_Surface* gubbe = SDL_LoadBMP("/Users/marietopphem/Desktop/gubbefront.bmp");
+    
+    SDL_Texture* gubbeTx = SDL_CreateTextureFromSurface(game -> getRenderer(), gubbe);
+    SDL_FreeSurface(gubbe);
+    
+    texture = gubbeTx;
     
 }
+
+
+
+void Player::drawSprite(SDL_Renderer *renderer) const{
+    
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    
+    cout << "draw Sprite"<< endl;
+    
+}
+
+void Player::updateSprite(){
+    
+}
+
+
+
+
+

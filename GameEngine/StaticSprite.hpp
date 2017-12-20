@@ -16,7 +16,7 @@ class StaticSprite :public Sprite {
     
 public:
     
-    StaticSprite(SDL_Renderer* ren, int life, int xpos, int ypos);
+    StaticSprite(int life, int xpos, int ypos);
     ~StaticSprite();
     
     

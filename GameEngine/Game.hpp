@@ -11,6 +11,10 @@
 
 #include <SDL2/SDL.h>
 #include <iostream>
+#include "Sprite.hpp"
+#include <vector>
+
+using namespace std;
 
 class Game{
 public:
@@ -27,20 +31,21 @@ public:
     
     bool running(){
         return isRunning;
-    };
+    }
+    void add(Sprite* sprite);
     
     
-    
-    
-    void add(); // lägg till ny sprite
     void remove(); // ta bort sprite
     void tick(); // vad har en sprite gjort under den senaste loopen? Ska kanske ligga i Sprite-klassen
+    
+    SDL_Renderer *getRenderer();
     
 private:
     int count = 0;
     bool isRunning;
     SDL_Window *window;
     SDL_Renderer *renderer;
+    vector<Sprite*> spriteList;
     
     
 };

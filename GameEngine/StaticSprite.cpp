@@ -10,7 +10,7 @@
 #include "Sprite.hpp"
 
 
-StaticSprite::StaticSprite(SDL_Renderer* ren, int life, int xpos, int ypos) : Sprite(ren, life, xpos, ypos){
+StaticSprite::StaticSprite( int life, int xpos, int ypos) : Sprite(life, xpos, ypos){
     
 }
 

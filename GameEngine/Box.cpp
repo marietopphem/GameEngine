@@ -9,10 +9,21 @@
 #include "Box.hpp"
 #include "StaticSprite.hpp"
 
-Box::Box(SDL_Renderer* ren, int life, int xpos, int ypos) : StaticSprite(ren, life, xpos, ypos){
+Box::Box(int life, int xpos, int ypos) : StaticSprite( life, xpos, ypos){
     
 }
 
 void Box::blastBox(){
+    
+}
+
+void Box::drawSprite(SDL_Renderer *renderer) const{
+    
+    
+}
+
+
+void Box::updateSprite(){
+    
     
 }
