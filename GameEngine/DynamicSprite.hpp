@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "Sprite.hpp"
-#include "Tile.hpp"
+
 
 class DynamicSprite : public Sprite{
     

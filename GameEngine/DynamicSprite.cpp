@@ -7,10 +7,9 @@
 //
 
 #include "DynamicSprite.hpp"
-#include "Tile.hpp"
 
 using namespace std;
-Tile *tile = nullptr;
+
 
 DynamicSprite::DynamicSprite( int life, int xpos, int ypos) : Sprite( life, xpos, ypos){
     

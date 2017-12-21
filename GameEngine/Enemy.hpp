@@ -11,10 +11,11 @@
 
 #include <iostream>
 #include "DynamicSprite.hpp"
+#include "Game.hpp"
 
 class Enemy : public DynamicSprite{
 public:
-    Enemy( int life, int xpos, int ypos);
+    Enemy( int life, int xpos, int ypos, Game *game);
     
     int randomization();
     void move();

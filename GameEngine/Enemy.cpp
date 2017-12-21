@@ -10,14 +10,22 @@
 #include <cstdlib>
 #include <iostream>
 #include "DynamicSprite.hpp"
+#include <SDL2_image/SDL_image.h>
+#include <SDL2/SDL.h>
 
 using namespace std;
 
-DynamicSprite *dynSpri = nullptr;
 
-Enemy::Enemy( int life, int xpos, int ypos) : DynamicSprite(life, xpos, ypos){
+Enemy::Enemy( int life, int xpos, int ypos, Game *game) : DynamicSprite(life, xpos, ypos){
     
-    life = 1;
+    SDL_Surface* enemy = IMG_Load("/Users/marietopphem/Desktop/PacmanGhost.png");
+    rect = {xpos,ypos,enemy -> w/10, enemy ->h/10 };
+    Uint32 white = SDL_MapRGB(enemy->format, 255, 255, 255);
+    SDL_SetColorKey(enemy, true, white);
+    SDL_Texture* enemyTx = SDL_CreateTextureFromSurface(game -> getRenderer(), enemy);
+    SDL_FreeSurface(enemy);
+    
+    texture = enemyTx;
 }
 
 int Enemy::randomization(){
@@ -32,21 +40,21 @@ int Enemy::randomization(){
 void Enemy::move(){
     int direction = randomization();
     cout << "EmenyMove" << endl;
-    int x = 19;
     if (direction == 0){
         cout << "direction left" << endl;
-        dynSpri -> goLeft(x);
+        goLeft(xpos);
     } else if (direction == 1){
-        // goUp();
+         goUp(ypos);
     } else if (direction == 2){
-        // goRight();
+         goRight(xpos);
     } else {
-        // goDown();
+         goDown(ypos);
     }
 }
 
 void Enemy::drawSprite(SDL_Renderer *renderer) const{
     
+    SDL_RenderCopy(renderer, texture, NULL, &rect);
     
 }
 

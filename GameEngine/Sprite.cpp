@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Sprite::Sprite( int life, int xpos, int ypos) {
+Sprite::Sprite( int life, int xpos, int ypos):xpos(xpos),ypos(ypos) {
     
     
     

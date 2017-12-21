@@ -202,12 +202,11 @@ void Game::handleEvent(){
 
 void Game::update(){
     
-   // Enemy *enemy = nullptr;
-    //count++;
-    //cout << count << endl;
-    //if(count % 10 == 0){
-    //    enemy -> move();
-    //}
+   Enemy *enemy = (Enemy*)spriteList.front();;
+    count++;
+    if(count % 10 == 0){
+        enemy -> move();
+    }
     for(auto& sprite: spriteList){
         sprite -> updateSprite();
     }
