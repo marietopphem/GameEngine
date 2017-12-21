@@ -108,7 +108,7 @@ void Game::init(const char *title, int xpos, int ypos,int width, int height, boo
 
 void Game::handleEvent(){
     
-    Player *player = nullptr;
+    Player *player = (Player*)spriteList.back();
     
     SDL_Event event;
     SDL_PollEvent(&event);
@@ -202,11 +202,14 @@ void Game::handleEvent(){
 
 void Game::update(){
     
-    Enemy *enemy = nullptr;
-    count++;
-    cout << count << endl;
-    if(count % 10 == 0){
-        enemy -> move();
+   // Enemy *enemy = nullptr;
+    //count++;
+    //cout << count << endl;
+    //if(count % 10 == 0){
+    //    enemy -> move();
+    //}
+    for(auto& sprite: spriteList){
+        sprite -> updateSprite();
     }
 }
 

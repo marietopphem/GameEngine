@@ -10,6 +10,7 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include "Game.hpp"
+#include <SDL2_image/SDL_image.h>
 
 
 
@@ -22,30 +23,26 @@ void Player::makeMove(int direction){
     
     if (direction == 1){
         
-        // /Users/marietopphem/Desktop/GubbeLeft.bmp
         
-        // goLeft();
+        goLeft(xpos);
         cout << "Left move" << endl;
         
     } else if (direction == 2){
         
-        // /Users/marietopphem/Desktop/GubbeBack.bmp
         
-        // goUp();
+        goUp(ypos);
         cout << "Up move" << endl;
         
     } else if (direction == 3){
         
-        // /Users/marietopphem/Desktop/GubbeRight.bmp
-        
-        // goRight();
+    
+        goRight(xpos);
         cout << "Right move" << endl;
         
     } else {
         
-        // /Users/marietopphem/Desktop/GubbeFront.bmp
         
-        // goDown();
+        goDown(ypos);
         cout << "Down move" << endl;
     }
     
@@ -58,12 +55,16 @@ void Player::shoot(){
 
 Player::Player(int life, int xpos, int ypos, Game *game): DynamicSprite( life, xpos, ypos){
     
-    SDL_Surface* gubbe = SDL_LoadBMP("/Users/marietopphem/Desktop/gubbefront.bmp");
+    SDL_Surface* pacman = IMG_Load("/Users/marietopphem/Desktop/pacman.jpeg");
+    rect = {0,0,pacman -> w, pacman ->h };
+    Uint32 white = SDL_MapRGB(pacman->format, 255, 255, 255);
+    SDL_SetColorKey(pacman, true, white);
+    SDL_Texture* pacmanTx = SDL_CreateTextureFromSurface(game -> getRenderer(), pacman);
+    SDL_FreeSurface(pacman);
     
-    SDL_Texture* gubbeTx = SDL_CreateTextureFromSurface(game -> getRenderer(), gubbe);
-    SDL_FreeSurface(gubbe);
+    texture = pacmanTx;
     
-    texture = gubbeTx;
+    //cout << pacman -> h << "  " << pacman -> w << endl;
     
 }
 
@@ -71,13 +72,15 @@ Player::Player(int life, int xpos, int ypos, Game *game): DynamicSprite( life, x
 
 void Player::drawSprite(SDL_Renderer *renderer) const{
     
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderCopy(renderer, texture, NULL, &rect);
     
-    cout << "draw Sprite"<< endl;
+    //cout << "draw Sprite"<< endl;
     
 }
 
 void Player::updateSprite(){
+    
+    
     
 }
 

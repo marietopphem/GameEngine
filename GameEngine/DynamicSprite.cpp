@@ -9,7 +9,7 @@
 #include "DynamicSprite.hpp"
 #include "Tile.hpp"
 
-
+using namespace std;
 Tile *tile = nullptr;
 
 DynamicSprite::DynamicSprite( int life, int xpos, int ypos) : Sprite( life, xpos, ypos){
@@ -26,13 +26,17 @@ void DynamicSprite::goLeft(int x){
         //no move
     }else{
         // check if Tile is occupied
+        // collision , is it a wall or a enemy?
         if (isTileOccupied()) {
             // no move
         } else{
-            x--;
+            
             cout << "Went Left" << endl;
         }
     }
+    xpos--;
+    rect.x = xpos;
+    
 }
 
 
@@ -46,9 +50,14 @@ void DynamicSprite::goRight(int x){
             
         } else{
         // check if Tile is occupied
-        x++;
+        
         }
     }
+    
+    xpos++;
+    rect.x = xpos;
+    
+    
 }
 
 void DynamicSprite::goUp(int y){
@@ -59,9 +68,11 @@ void DynamicSprite::goUp(int y){
             // no move
         } else{
         // check if Tile is occupied
-            y--;
         }
     }
+    ypos--;
+    rect.y = ypos;
+
 }
 
 void DynamicSprite::goDown(int y){
@@ -72,9 +83,12 @@ void DynamicSprite::goDown(int y){
             // no move
         } else{
         // check if Tile is occupied
-            y++;
+            
         }
     }
+    ypos++;
+    rect.y = ypos;
+
 }
 
 bool DynamicSprite::isTileOccupied(){

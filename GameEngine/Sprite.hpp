@@ -14,8 +14,6 @@
 #include "Tile.hpp"
 
 
-using namespace std;
-
 class Sprite{
 public:
     ~Sprite();
@@ -28,13 +26,15 @@ public:
 protected:
     Sprite(int life, int xpos, int ypos);
     SDL_Texture *texture;
+    int xpos;
+    int ypos;
+    SDL_Rect rect;
     
     
     
 private:
     int life;
-    int xpos;
-    int ypos;
+    
     
     
     
