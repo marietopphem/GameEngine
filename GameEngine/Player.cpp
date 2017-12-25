@@ -55,8 +55,8 @@ void Player::shoot(){
 
 Player::Player(int life, int xpos, int ypos, Game *game): DynamicSprite( life, xpos, ypos){
     
-    SDL_Surface* pacman = IMG_Load("/Users/marietopphem/Desktop/pacman.jpeg");
-    rect = {xpos,ypos,pacman -> w, pacman ->h };
+    SDL_Surface* pacman = IMG_Load("/Users/marietopphem/Desktop/Pacman.png");
+    rect = {xpos,ypos,pacman -> w/6, pacman ->h/6 };
     Uint32 white = SDL_MapRGB(pacman->format, 255, 255, 255);
     SDL_SetColorKey(pacman, true, white);
     SDL_Texture* pacmanTx = SDL_CreateTextureFromSurface(game -> getRenderer(), pacman);

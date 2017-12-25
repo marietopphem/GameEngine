@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "Sprite.hpp"
+#include "Game.hpp"
 
 
 class DynamicSprite : public Sprite{
@@ -25,10 +26,15 @@ public:
     
     bool isTileOccupied();
     
+    int getLife();
+    void checkLife();
+    
     
     
     
 private:
+    
+    int life;
     
     
     

@@ -11,12 +11,14 @@
 
 #include <stdio.h>
 #include "Sprite.hpp"
+#include "Game.hpp"
+
 
 class StaticSprite :public Sprite {
     
 public:
     
-    StaticSprite(int life, int xpos, int ypos);
+    StaticSprite(int xpos, int ypos);
     ~StaticSprite();
     
     

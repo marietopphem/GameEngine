@@ -10,6 +10,8 @@
 #include "Game.hpp"
 #include "Player.hpp"
 #include "Enemy.hpp"
+#include "VerticalWall.hpp"
+#include "HorizontalWall.hpp"
 
 using namespace std;
 
@@ -29,6 +31,19 @@ void Game::add(Sprite* sprite){
     
     
 }
+
+void Game::addWalls(Game *game){
+    
+    for(int i = 0; i <= 640; i+=20){
+        add(new VerticalWall(0,i,game));
+        add(new VerticalWall(795,i,game));
+    }
+    for(int i = 5; i <= 795; i+=20){
+        add(new HorizontalWall(i,0,game));
+        add(new HorizontalWall(i,635, game));
+    }
+}
+
 
 
 void Game::run(){
@@ -211,6 +226,8 @@ void Game::update(){
         sprite -> updateSprite();
     }
 }
+
+
 
 void Game::render(){
     

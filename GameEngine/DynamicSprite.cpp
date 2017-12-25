@@ -7,11 +7,12 @@
 //
 
 #include "DynamicSprite.hpp"
+#include "Game.hpp"
 
 using namespace std;
 
 
-DynamicSprite::DynamicSprite( int life, int xpos, int ypos) : Sprite( life, xpos, ypos){
+DynamicSprite::DynamicSprite( int life, int xpos, int ypos) : Sprite( xpos, ypos){
     
 }
 
@@ -94,6 +95,20 @@ bool DynamicSprite::isTileOccupied(){
     
     return 0;
     
+}
+
+
+int DynamicSprite::getLife(){
+    return life;
+}
+
+void DynamicSprite::checkLife(){
+    
+    if(life == 0){
+        // if (enemy){disapear} else{Game Over} Använd funktionen remove() som finns i klassen Game
+    } else{
+        //Contiune Game
+    }
 }
 
 

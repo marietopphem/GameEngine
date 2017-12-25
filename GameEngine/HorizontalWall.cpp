@@ -1,0 +1,35 @@
+//
+//  HorizontalWall.cpp
+//  GameEngine
+//
+//  Created by Marie Topphem on 2017-12-23.
+//  Copyright © 2017 Marie Topphem. All rights reserved.
+//
+
+#include "HorizontalWall.hpp"
+#include "StaticSprite.hpp"
+#include "Game.hpp"
+#include <SDL2/SDL.h>
+
+HorizontalWall::HorizontalWall(int xpos, int ypos, Game *game) : StaticSprite( xpos, ypos){
+    
+    SDL_Surface *box = SDL_LoadBMP("/Users/marietopphem/Desktop/PacmanWallHorizontal.bmp");
+    rect = {xpos, ypos, box -> w, box->h};
+    SDL_Texture *boxTx = SDL_CreateTextureFromSurface(game -> getRenderer(), box);
+    SDL_FreeSurface(box);
+    
+    texture = boxTx;
+}
+
+
+
+void HorizontalWall::drawSprite(SDL_Renderer *renderer) const{
+    SDL_RenderCopy(renderer, texture, NULL, &rect);
+    
+}
+
+
+void HorizontalWall::updateSprite(){
+    
+    
+}

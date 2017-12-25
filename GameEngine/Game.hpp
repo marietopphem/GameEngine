@@ -34,6 +34,9 @@ public:
     }
     void add(Sprite* sprite);
     
+    void addWalls(Game *game);
+    
+    
     
     void remove(); // ta bort sprite
     void tick(); // vad har en sprite gjort under den senaste loopen? Ska kanske ligga i Sprite-klassen
@@ -46,6 +49,12 @@ private:
     SDL_Window *window;
     SDL_Renderer *renderer;
     vector<Sprite*> spriteList;
+    
+    vector<Sprite*> walls;
+    
+    
+    
+    
     
     
 };

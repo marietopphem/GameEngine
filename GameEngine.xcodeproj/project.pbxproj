@@ -15,7 +15,8 @@
 		284813B91FDC9D5100BE14D5 /* StaticSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 284813B71FDC9D5100BE14D5 /* StaticSprite.cpp */; };
 		284813BC1FDC9D6400BE14D5 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 284813BA1FDC9D6400BE14D5 /* Enemy.cpp */; };
 		284813BF1FDC9D6E00BE14D5 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 284813BD1FDC9D6E00BE14D5 /* Player.cpp */; };
-		284813C21FE2A58B00BE14D5 /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 284813C01FE2A58B00BE14D5 /* Box.cpp */; };
+		284813C21FE2A58B00BE14D5 /* VerticalWall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 284813C01FE2A58B00BE14D5 /* VerticalWall.cpp */; };
+		289915971FEE89730024AE86 /* HorizontalWall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 289915951FEE89730024AE86 /* HorizontalWall.cpp */; };
 		28C51D801FB521E300452EF2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28C51D7F1FB521E300452EF2 /* main.cpp */; };
 		28C51D8A1FB5221C00452EF2 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C51D891FB5221B00452EF2 /* SDL2.framework */; };
 		28EE9D441FD16E3800E4275F /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28EE9D421FD16E3800E4275F /* Sprite.cpp */; };
@@ -54,8 +55,10 @@
 		284813BB1FDC9D6400BE14D5 /* Enemy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
 		284813BD1FDC9D6E00BE14D5 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		284813BE1FDC9D6E00BE14D5 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
-		284813C01FE2A58B00BE14D5 /* Box.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Box.cpp; sourceTree = "<group>"; };
-		284813C11FE2A58B00BE14D5 /* Box.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Box.hpp; sourceTree = "<group>"; };
+		284813C01FE2A58B00BE14D5 /* VerticalWall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VerticalWall.cpp; sourceTree = "<group>"; };
+		284813C11FE2A58B00BE14D5 /* VerticalWall.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VerticalWall.hpp; sourceTree = "<group>"; };
+		289915951FEE89730024AE86 /* HorizontalWall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HorizontalWall.cpp; sourceTree = "<group>"; };
+		289915961FEE89730024AE86 /* HorizontalWall.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HorizontalWall.hpp; sourceTree = "<group>"; };
 		28C51D7C1FB521E300452EF2 /* GameEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GameEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		28C51D7F1FB521E300452EF2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		28C51D871FB5220800452EF2 /* Library */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Library; path = ../../../../../../../../Library; sourceTree = "<group>"; };
@@ -125,8 +128,10 @@
 				284813BB1FDC9D6400BE14D5 /* Enemy.hpp */,
 				284813B71FDC9D5100BE14D5 /* StaticSprite.cpp */,
 				284813B81FDC9D5100BE14D5 /* StaticSprite.hpp */,
-				284813C01FE2A58B00BE14D5 /* Box.cpp */,
-				284813C11FE2A58B00BE14D5 /* Box.hpp */,
+				284813C01FE2A58B00BE14D5 /* VerticalWall.cpp */,
+				284813C11FE2A58B00BE14D5 /* VerticalWall.hpp */,
+				289915951FEE89730024AE86 /* HorizontalWall.cpp */,
+				289915961FEE89730024AE86 /* HorizontalWall.hpp */,
 			);
 			path = GameEngine;
 			sourceTree = "<group>";
@@ -208,8 +213,9 @@
 				284813BF1FDC9D6E00BE14D5 /* Player.cpp in Sources */,
 				284813B91FDC9D5100BE14D5 /* StaticSprite.cpp in Sources */,
 				28EE9D441FD16E3800E4275F /* Sprite.cpp in Sources */,
+				289915971FEE89730024AE86 /* HorizontalWall.cpp in Sources */,
 				284813AD1FDAA05A00BE14D5 /* Tile.cpp in Sources */,
-				284813C21FE2A58B00BE14D5 /* Box.cpp in Sources */,
+				284813C21FE2A58B00BE14D5 /* VerticalWall.cpp in Sources */,
 				284813B61FDC9D4300BE14D5 /* DynamicSprite.cpp in Sources */,
 				284813B01FDAAF4C00BE14D5 /* Button.cpp in Sources */,
 			);

@@ -8,10 +8,14 @@
 
 #include "StaticSprite.hpp"
 #include "Sprite.hpp"
+#include "Game.hpp"
 
 
-StaticSprite::StaticSprite( int life, int xpos, int ypos) : Sprite(life, xpos, ypos){
-    
+
+StaticSprite::StaticSprite(int xpos, int ypos) : Sprite(xpos, ypos){
+
 }
 
-
+StaticSprite::~StaticSprite(){
+    
+}

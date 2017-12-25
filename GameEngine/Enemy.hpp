@@ -24,6 +24,8 @@ public:
     void updateSprite() override;
     
     
+private:
+    
 };
 
 #endif /* Enemy_hpp */

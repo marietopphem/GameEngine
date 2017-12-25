@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Sprite::Sprite( int life, int xpos, int ypos):xpos(xpos),ypos(ypos) {
+Sprite::Sprite( int xpos, int ypos):xpos(xpos),ypos(ypos) {
     
     
     
@@ -21,15 +21,4 @@ Sprite::~Sprite(){
     
 }
 
-int Sprite::getLife(){
-    return life;
-}
 
-void Sprite::checkLife(){
-    
-    if(life == 0){
-        // if (enemy){disapear} else{Game Over} Använd funktionen remove() som finns i klassen Game
-    } else{
-        //Contiune Game
-    }
-}

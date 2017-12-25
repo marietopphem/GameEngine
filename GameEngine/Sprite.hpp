@@ -17,14 +17,12 @@
 class Sprite{
 public:
     ~Sprite();
-    void checkLife();
+    
     virtual void drawSprite(SDL_Renderer *renderer) const = 0;
     virtual void updateSprite() = 0;
     
-    int getLife();
-    
 protected:
-    Sprite(int life, int xpos, int ypos);
+    Sprite( int xpos, int ypos);
     SDL_Texture *texture;
     int xpos;
     int ypos;
@@ -33,7 +31,7 @@ protected:
     
     
 private:
-    int life;
+    
     
     
     
