@@ -12,32 +12,26 @@
 #include <iostream>
 #include "Sprite.hpp"
 #include "Game.hpp"
+#include <SDL2/SDL.h>
 
 
 class DynamicSprite : public Sprite{
     
 public:
-    DynamicSprite( int life, int xpos, int ypos);
+    DynamicSprite( int life, int xpos, int ypos, vector<SDL_Texture*> images);
     ~DynamicSprite();
     void goRight(int x);
     void goLeft(int x);
     void goDown(int y);
     void goUp(int y);
     
-    bool isTileOccupied();
-    
     int getLife();
     void checkLife();
     
-    
-    
-    
 private:
-    
     int life;
-    
-    
-    
+protected:
+    vector<SDL_Texture*> images;
     
 };
 

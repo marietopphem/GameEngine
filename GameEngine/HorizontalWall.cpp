@@ -10,6 +10,7 @@
 #include "StaticSprite.hpp"
 #include "Game.hpp"
 #include <SDL2/SDL.h>
+#include <string>
 
 HorizontalWall::HorizontalWall(int xpos, int ypos, Game *game) : StaticSprite( xpos, ypos){
     
@@ -21,15 +22,16 @@ HorizontalWall::HorizontalWall(int xpos, int ypos, Game *game) : StaticSprite( x
     texture = boxTx;
 }
 
-
-
 void HorizontalWall::drawSprite(SDL_Renderer *renderer) const{
     SDL_RenderCopy(renderer, texture, NULL, &rect);
-    
 }
-
 
 void HorizontalWall::updateSprite(){
     
+}
+
+void HorizontalWall::handleCollision() {
     
 }
+
+std::string HorizontalWall::getType(){return "HorizontalWall";}

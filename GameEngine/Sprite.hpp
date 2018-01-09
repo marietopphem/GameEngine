@@ -11,7 +11,7 @@
 
 #include <SDL2/SDL.h>
 #include <iostream>
-#include "Tile.hpp"
+
 
 
 class Sprite{
@@ -20,6 +20,16 @@ public:
     
     virtual void drawSprite(SDL_Renderer *renderer) const = 0;
     virtual void updateSprite() = 0;
+    virtual void handleCollision() = 0;
+    virtual void setPoints() = 0;
+    
+    SDL_Rect *getRect();
+    int getXPos();
+    int getYPos();
+
+    
+    
+    virtual std::string getType(){return type;}
     
 protected:
     Sprite( int xpos, int ypos);
@@ -27,15 +37,9 @@ protected:
     int xpos;
     int ypos;
     SDL_Rect rect;
-    
-    
-    
+
 private:
-    
-    
-    
-    
-    
+    std::string type;
     
 };
 

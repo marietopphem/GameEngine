@@ -12,17 +12,22 @@
 #include <stdio.h>
 #include "StaticSprite.hpp"
 #include "Game.hpp"
+#include <string>
 
 class VerticalWall : public StaticSprite{
 public:
     
     VerticalWall(int xpos, int ypos, Game *game);
     ~VerticalWall();
-    void blastBox();
+   
+    void blastBox();  // ???
     
     void drawSprite(SDL_Renderer *renderer) const override;
     void updateSprite() override;
+    void handleCollision() override;
+    void setPoints() override{}
     
+    std::string getType() override;
 private:
     
     

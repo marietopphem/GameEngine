@@ -12,19 +12,28 @@
 #include <iostream>
 #include "DynamicSprite.hpp"
 #include "Game.hpp"
+#include <string>
+#include <SDL2/SDL.h>
 
 class Enemy : public DynamicSprite{
 public:
-    Enemy( int life, int xpos, int ypos, Game *game);
+    Enemy(int life, int xpos, int ypos, vector<SDL_Texture*> images, Game *game);
+    ~Enemy();
     
     int randomization();
     void move();
-    
+    void handleCollision() override;
     void drawSprite(SDL_Renderer *renderer) const override;
     void updateSprite() override;
     
+    void setPoints() override{}
+    
+    
+    std::string getType() override;
     
 private:
+    int count = 0;
+    int direction;
     
 };
 

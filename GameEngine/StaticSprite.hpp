@@ -21,7 +21,6 @@ public:
     StaticSprite(int xpos, int ypos);
     ~StaticSprite();
     
-    
 private:
     
     

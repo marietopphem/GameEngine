@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "StaticSprite.hpp"
 #include "Game.hpp"
+#include <string>
 
 class HorizontalWall : public StaticSprite{
 public:
@@ -23,6 +24,9 @@ public:
     
     void drawSprite(SDL_Renderer *renderer) const override;
     void updateSprite() override;
+    void handleCollision() override;
+    void setPoints() override{}
+    std::string getType() override;
     
 private:
     

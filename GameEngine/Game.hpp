@@ -33,17 +33,19 @@ public:
         return isRunning;
     }
     void add(Sprite* sprite);
-    
     void addWalls(Game *game);
-    
-    
     
     void remove(); // ta bort sprite
     void tick(); // vad har en sprite gjort under den senaste loopen? Ska kanske ligga i Sprite-klassen
+    bool collision(Sprite* a, Sprite* b);
     
     SDL_Renderer *getRenderer();
     
+    
+    
 private:
+    
+    vector<Sprite*> removeSprite;
     int count = 0;
     bool isRunning;
     SDL_Window *window;

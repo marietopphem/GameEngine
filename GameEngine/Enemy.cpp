@@ -12,11 +12,12 @@
 #include "DynamicSprite.hpp"
 #include <SDL2_image/SDL_image.h>
 #include <SDL2/SDL.h>
+#include <string>
 
 using namespace std;
 
 
-Enemy::Enemy( int life, int xpos, int ypos, Game *game) : DynamicSprite(life, xpos, ypos){
+Enemy::Enemy( int life, int xpos, int ypos, vector<SDL_Texture*> images, Game *game) : DynamicSprite(life, xpos, ypos, images){
     
     SDL_Surface* enemy = IMG_Load("/Users/marietopphem/Desktop/PacmanGhostGreenBlue.png");
     rect = {xpos,ypos,enemy -> w/10, enemy ->h/10 };
@@ -34,14 +35,12 @@ int Enemy::randomization(){
     
     cout << randomizieded << endl;
     return randomizieded;
-    
 }
 
 void Enemy::move(){
-    int direction = randomization();
+    direction = randomization();
     cout << "EmenyMove" << endl;
     if (direction == 0){
-        cout << "direction left" << endl;
         goLeft(xpos);
     } else if (direction == 1){
          goUp(ypos);
@@ -53,15 +52,27 @@ void Enemy::move(){
 }
 
 void Enemy::drawSprite(SDL_Renderer *renderer) const{
-    
     SDL_RenderCopy(renderer, texture, NULL, &rect);
-    
 }
 
 void Enemy::updateSprite(){
-
-
+    
+    count++;
+    if(count % 10 == 0){
+        move();
+    }
 }
 
+void Enemy::handleCollision() {
+    if (direction == 1){
+        goRight(xpos);
+    } else if (direction == 2){
+        goDown(ypos);
+    } else if (direction == 3){
+        goLeft(xpos);
+    } else {
+        goUp(ypos);
+    }
+}
 
-
+std::string Enemy::getType(){return "Enemy";}

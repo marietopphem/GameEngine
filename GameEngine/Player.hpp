@@ -12,22 +12,34 @@
 #include <stdio.h>
 #include "DynamicSprite.hpp"
 #include "Game.hpp"
+#include <string>
+#include <SDL2/SDL.h>
 
 class Player : public DynamicSprite{
     
 public:
-    void makeMove(int direction);
-    void shoot(); // or drop();
     
-    Player(int life, int xpos, int ypos, Game *game);
+    void shoot(); // or drop(); ???
+    
+    Player(int life, int xpos, int ypos, vector<SDL_Texture*> images, Game *game);
     ~Player();
     
+    void makeMove(int direction);
+    void handleCollision() override;
     void drawSprite(SDL_Renderer *renderer) const override;
     void updateSprite() override;
 
+    void setPoints() override{
+        points +=10;
+        std::cout << "Poängen har ökat till " << points << std::endl;
+    }
+    
+    std::string getType() override;
     
 private:
-    
+    int direction;
+    int points = 0;
+    int tick = 0;
     
 };
 

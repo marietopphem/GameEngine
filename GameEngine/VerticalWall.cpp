@@ -10,6 +10,7 @@
 #include "StaticSprite.hpp"
 #include "Game.hpp"
 #include <SDL2/SDL.h>
+#include <string>
 
 VerticalWall::VerticalWall(int xpos, int ypos, Game *game) : StaticSprite( xpos, ypos){
     
@@ -30,8 +31,12 @@ void VerticalWall::drawSprite(SDL_Renderer *renderer) const{
     
 }
 
-
 void VerticalWall::updateSprite(){
     
+}
+
+void VerticalWall::handleCollision() {
     
 }
+
+std::string VerticalWall::getType(){return "VerticalWall";}
