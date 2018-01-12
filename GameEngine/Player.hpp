@@ -34,6 +34,10 @@ public:
         std::cout << "Poängen har ökat till " << points << std::endl;
     }
     
+    int getPoints() override{
+        return points;
+    }
+    
     std::string getType() override;
     
 private:

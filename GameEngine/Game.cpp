@@ -13,6 +13,7 @@
 #include "VerticalWall.hpp"
 #include "HorizontalWall.hpp"
 #include <string>
+#include <SDL2_ttf/SDL_ttf.h>
 
 using namespace std;
 
@@ -31,13 +32,13 @@ void Game::add(Sprite* sprite){
 
 void Game::addWalls(Game *game){
     
-    for(int i = 0; i <= 640; i+=24){
+    for(int i = 5; i <= 630; i+=40){
         add(new VerticalWall(0,i,game));
-        add(new VerticalWall(795,i,game));
+        add(new VerticalWall(805,i,game));
     }
-    for(int i = 6; i <= 794; i+=24){
+    for(int i = 0; i <= 800; i+=15){
         add(new HorizontalWall(i,0,game));
-        add(new HorizontalWall(i,635, game));
+        add(new HorizontalWall(i,645, game));
     }
 }
 
@@ -50,11 +51,26 @@ void Game::run(){
     
     while(running()){
         
+        
+        
         frameStart = SDL_GetTicks();
         
         handleEvent();
         update();
+        
+        pointCounter();
+        
         render();
+        
+        
+        if(gameOver){
+            string text= "GameOver";
+            lableGameOver(text);
+            
+            SDL_Delay(3000);
+            
+            isRunning=false;
+        }
         
         for(Sprite* remove: removeSprite){
             for(auto iterator = spriteList.begin();iterator!=spriteList.end();){
@@ -96,11 +112,24 @@ void Game::init(const char *title, int xpos, int ypos,int width, int height, boo
             cout << "Renderer created" << endl;
         }
         
+
+        if(TTF_Init()==0){
+            cout <<"TTF_init"<< endl;
+        }
+        
         isRunning = true;
         
     }else{
         isRunning = false;
     }
+    
+    
+
+}
+void Game::addCommand(SDL_Keycode key, function<void()>func){
+    commands.emplace(SDLK_x, func);
+
+    
 }
 
 void Game::handleEvent(){
@@ -149,10 +178,14 @@ void Game::handleEvent(){
                     break;
                     
                 case SDLK_p:
+                    
                     cout << "p button pressed"<< endl;
                     break;
                     
                 default:
+                    if(commands[event.key.keysym.sym]){
+                        commands[event.key.keysym.sym]();
+                    }
                     break;
             }
             break;
@@ -206,7 +239,10 @@ void Game::update(){
                     
                     cout << "GAME OVER" << endl;
                     
-                    isRunning = false;
+                    gameOver = true;
+                    
+                }else if((sprite1 == "Enemy" && sprite2 == "PointPill") || (sprite1 == "PointPill" && sprite2 == "Enemy")){
+                    
                     
                 }else{
                     Sprite* spriteVec1 = spriteList.at(i);
@@ -215,7 +251,7 @@ void Game::update(){
                     Sprite* spriteVec2 = spriteList.at(j);
                     spriteVec2 -> handleCollision();
                 }
-                cout << sprite1 << " har kolliderat med " << sprite2 <<endl;
+                
             }
         }
     }
@@ -229,6 +265,7 @@ void Game::render(){
     for(auto const& sprite: spriteList){
         sprite -> drawSprite(renderer);
     }
+    SDL_RenderCopy(renderer, pointTexture, NULL, &rectPoint);
     
     SDL_RenderPresent(renderer);
 }
@@ -272,4 +309,36 @@ bool Game::collision(Sprite* a, Sprite* b){
         return true;
     }
 }
+
+void Game::lableGameOver(string text){
+    
+    TTF_Font* font = TTF_OpenFont ("/Library/Fonts/Impact.ttf", 100);
+    SDL_Color color={255,0,0};
+    SDL_Surface* gameOverSurf = TTF_RenderText_Solid(font, text.c_str(), color);
+    gameOverTexture = SDL_CreateTextureFromSurface(renderer, gameOverSurf);
+    SDL_Rect rectOver= {200,200,gameOverSurf -> w, gameOverSurf ->h };
+    
+    SDL_FreeSurface(gameOverSurf);
+    
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, gameOverTexture, NULL, &rectOver);
+    SDL_RenderPresent(renderer);
+    
+}
+
+void Game::pointCounter(){
+    
+    Player* player =(Player*)spriteList.back();
+    string text =  to_string(player -> getPoints());
+    
+    TTF_Font* font = TTF_OpenFont ("/Library/Fonts/Impact.ttf", 20);
+    SDL_Color color={255,0,0};
+    SDL_Surface* pointSurf = TTF_RenderText_Solid(font, text.c_str(), color);
+    pointTexture = SDL_CreateTextureFromSurface(renderer, pointSurf);
+    rectPoint= {20,650,pointSurf -> w, pointSurf ->h };
+    
+    SDL_FreeSurface(pointSurf);
+    
+}
+
 

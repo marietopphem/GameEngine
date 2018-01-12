@@ -13,6 +13,10 @@
 #include <iostream>
 #include "Sprite.hpp"
 #include <vector>
+#include <map>
+#include <functional>
+#include <SDL2_ttf/SDL_ttf.h>
+
 
 using namespace std;
 
@@ -38,13 +42,16 @@ public:
     void remove(); // ta bort sprite
     void tick(); // vad har en sprite gjort under den senaste loopen? Ska kanske ligga i Sprite-klassen
     bool collision(Sprite* a, Sprite* b);
+    void addCommand(SDL_Keycode key, function<void()> func);
+    void pause();
     
     SDL_Renderer *getRenderer();
     
+    void pointCounter();
     
+    void lableGameOver(string text);
     
 private:
-    
     vector<Sprite*> removeSprite;
     int count = 0;
     bool isRunning;
@@ -52,11 +59,14 @@ private:
     SDL_Renderer *renderer;
     vector<Sprite*> spriteList;
     
-    vector<Sprite*> walls;
+    bool gameOver = false;
+    std::map<SDL_Keycode, std::function<void()>> commands;
+
+    SDL_Texture* gameOverTexture;
+    SDL_Texture* pointTexture;
+    SDL_Rect rectPoint;
     
-    
-    
-    
+   
     
     
 };

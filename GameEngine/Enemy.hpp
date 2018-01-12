@@ -27,12 +27,13 @@ public:
     void updateSprite() override;
     
     void setPoints() override{}
-    
+    int getPoints() override{return 0;}
     
     std::string getType() override;
     
 private:
     int count = 0;
+    int countDirection = 0;
     int direction;
     
 };

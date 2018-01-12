@@ -11,10 +11,11 @@
 #include "Game.hpp"
 #include <SDL2/SDL.h>
 #include <string>
+#include <SDL2_image/SDL_image.h>
 
 HorizontalWall::HorizontalWall(int xpos, int ypos, Game *game) : StaticSprite( xpos, ypos){
     
-    SDL_Surface *box = SDL_LoadBMP("/Users/marietopphem/Desktop/PacmanWallHorizontal.bmp");
+    SDL_Surface *box = IMG_Load("/Users/marietopphem/Desktop/PacmanHorizontalWall.png");
     rect = {xpos, ypos, box -> w, box->h};
     SDL_Texture *boxTx = SDL_CreateTextureFromSurface(game -> getRenderer(), box);
     SDL_FreeSurface(box);

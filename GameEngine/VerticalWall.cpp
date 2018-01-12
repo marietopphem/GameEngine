@@ -11,10 +11,11 @@
 #include "Game.hpp"
 #include <SDL2/SDL.h>
 #include <string>
+#include <SDL2_image/SDL_image.h>
 
 VerticalWall::VerticalWall(int xpos, int ypos, Game *game) : StaticSprite( xpos, ypos){
     
-    SDL_Surface *wall = SDL_LoadBMP("/Users/marietopphem/Desktop/PacmanWall.bmp");
+    SDL_Surface *wall = IMG_Load("/Users/marietopphem/Desktop/PacmanVerticalWall.png");
     rect = {xpos, ypos, wall -> w, wall->h};
     SDL_Texture *wallTx = SDL_CreateTextureFromSurface(game -> getRenderer(), wall);
     SDL_FreeSurface(wall);

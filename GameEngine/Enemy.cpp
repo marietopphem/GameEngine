@@ -20,7 +20,7 @@ using namespace std;
 Enemy::Enemy( int life, int xpos, int ypos, vector<SDL_Texture*> images, Game *game) : DynamicSprite(life, xpos, ypos, images){
     
     SDL_Surface* enemy = IMG_Load("/Users/marietopphem/Desktop/PacmanGhostGreenBlue.png");
-    rect = {xpos,ypos,enemy -> w/10, enemy ->h/10 };
+    rect = {xpos,ypos,enemy -> w/20, enemy ->h/20 };
     Uint32 white = SDL_MapRGB(enemy->format, 255, 255, 255);
     SDL_SetColorKey(enemy, true, white);
     SDL_Texture* enemyTx = SDL_CreateTextureFromSurface(game -> getRenderer(), enemy);
@@ -38,7 +38,11 @@ int Enemy::randomization(){
 }
 
 void Enemy::move(){
-    direction = randomization();
+    
+    if(count % 5 == 0){
+      direction = randomization();
+    }
+    
     cout << "EmenyMove" << endl;
     if (direction == 0){
         goLeft(xpos);
@@ -58,17 +62,17 @@ void Enemy::drawSprite(SDL_Renderer *renderer) const{
 void Enemy::updateSprite(){
     
     count++;
-    if(count % 10 == 0){
+    if(count % 5 == 0){
         move();
     }
 }
 
 void Enemy::handleCollision() {
-    if (direction == 1){
+    if (direction == 0){
         goRight(xpos);
-    } else if (direction == 2){
+    } else if (direction == 1){
         goDown(ypos);
-    } else if (direction == 3){
+    } else if (direction == 2){
         goLeft(xpos);
     } else {
         goUp(ypos);

@@ -26,6 +26,7 @@ public:
     void updateSprite() override;
     void handleCollision() override;
     void setPoints() override{}
+    int getPoints() override{return 0;}
     std::string getType() override;
     
 private:

@@ -27,7 +27,7 @@ public:
     int getXPos();
     int getYPos();
 
-    
+    virtual int getPoints() = 0;
     
     virtual std::string getType(){return type;}
     
