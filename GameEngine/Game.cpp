@@ -234,9 +234,6 @@ void Game::update(){
                     Sprite* spriteVec1 = spriteList.at(i);
                     spriteVec1 -> handleCollision();
                     
-                    Sprite* spriteVec2 = spriteList.at(j);
-                    spriteVec2 -> handleCollision();
-                    
                     cout << "GAME OVER" << endl;
                     
                     gameOver = true;
