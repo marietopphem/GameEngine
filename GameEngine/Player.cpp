@@ -18,7 +18,6 @@
 using namespace std;
 
 void Player::makeMove(int inputDirection){
-    cout << "Let's make a move" << endl;
     direction = inputDirection;
     
     if (direction == 1){
@@ -27,13 +26,9 @@ void Player::makeMove(int inputDirection){
         goUp(ypos);
     } else if (direction == 3){
         goRight(xpos);
-    } else {
+    } else if(direction == 4){
         goDown(ypos);
     }
-}
-
-void Player::shoot(){
-    cout << "Let's shoot!! or Let's drop the bomb!!" << endl;
 }
 
 Player::Player(int life, int xpos, int ypos, vector<SDL_Texture*>images, Game *game): DynamicSprite( life, xpos, ypos, images){
@@ -87,6 +82,9 @@ void Player::updateSprite(){
         }else{
             tick=0;
         }
+    }
+    if(tick%2==0){
+        makeMove(direction);
     }
 }
 

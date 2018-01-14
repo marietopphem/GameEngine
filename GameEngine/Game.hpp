@@ -43,7 +43,6 @@ public:
     void tick(); // vad har en sprite gjort under den senaste loopen? Ska kanske ligga i Sprite-klassen
     bool collision(Sprite* a, Sprite* b);
     void addCommand(SDL_Keycode key, function<void()> func);
-    void pause();
     
     SDL_Renderer *getRenderer();
     

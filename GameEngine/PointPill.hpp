@@ -24,6 +24,7 @@ public:
     void handleCollision() override;
     void setPoints() override{}
     int getPoints() override{return 0;}
+    void resetCount()override {}
     
     std::string getType() override;
 

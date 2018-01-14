@@ -30,6 +30,7 @@ public:
     virtual int getPoints() = 0;
     
     virtual std::string getType(){return type;}
+    virtual void resetCount() =0;
     
 protected:
     Sprite( int xpos, int ypos);

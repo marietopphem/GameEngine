@@ -36,3 +36,5 @@ void PointPill::handleCollision() {
 }
 
 std::string PointPill::getType(){return "PointPill";}
+
+

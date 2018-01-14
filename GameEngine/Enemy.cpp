@@ -13,6 +13,8 @@
 #include <SDL2_image/SDL_image.h>
 #include <SDL2/SDL.h>
 #include <string>
+#include "Player.hpp"
+
 
 using namespace std;
 
@@ -27,23 +29,22 @@ Enemy::Enemy( int life, int xpos, int ypos, vector<SDL_Texture*> images, Game *g
     SDL_FreeSurface(enemy);
     
     texture = enemyTx;
+
 }
 
 int Enemy::randomization(){
     
     int randomizieded = (rand() % 4);
-    
-    cout << randomizieded << endl;
     return randomizieded;
+    
 }
 
 void Enemy::move(){
     
-    if(count % 5 == 0){
+    if(count % 35 == 0){
       direction = randomization();
     }
     
-    cout << "EmenyMove" << endl;
     if (direction == 0){
         goLeft(xpos);
     } else if (direction == 1){
@@ -62,7 +63,7 @@ void Enemy::drawSprite(SDL_Renderer *renderer) const{
 void Enemy::updateSprite(){
     
     count++;
-    if(count % 5 == 0){
+    if(count % 2 == 0){
         move();
     }
 }

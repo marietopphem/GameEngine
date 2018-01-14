@@ -18,9 +18,6 @@
 class Player : public DynamicSprite{
     
 public:
-    
-    void shoot(); // or drop(); ???
-    
     Player(int life, int xpos, int ypos, vector<SDL_Texture*> images, Game *game);
     ~Player();
     
@@ -31,7 +28,6 @@ public:
 
     void setPoints() override{
         points +=10;
-        std::cout << "Poängen har ökat till " << points << std::endl;
     }
     
     int getPoints() override{
@@ -40,8 +36,10 @@ public:
     
     std::string getType() override;
     
+    void resetCount()override {}
+    
 private:
-    int direction;
+    int direction = 5;
     int points = 0;
     int tick = 0;
     

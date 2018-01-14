@@ -75,7 +75,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-    game -> add(new Enemy(1, 12, 200, enemyImages, game));
+    game -> add(new Enemy(1, 410, 410, enemyImages, game));
     
     game -> addWalls(game);
     
@@ -340,7 +340,7 @@ int main(int argc, const char * argv[]) {
     game -> add(new VerticalWall(563,203,game));
     game -> add(new VerticalWall(563,243,game));
     game -> add(new VerticalWall(563,323,game));
-    game -> add(new VerticalWall(563,443,game));
+    game -> add(new VerticalWall(563,483,game));
     game -> add(new VerticalWall(563,523,game));
     game -> add(new VerticalWall(563,563,game));
     
@@ -378,6 +378,7 @@ int main(int argc, const char * argv[]) {
     game -> add(new VerticalWall(723,283,game));
     game -> add(new VerticalWall(723,323,game));
     game -> add(new VerticalWall(723,363,game));
+    game -> add(new VerticalWall(723,403,game));
     game -> add(new VerticalWall(723,523,game));
 
     //v19
@@ -392,25 +393,11 @@ int main(int argc, const char * argv[]) {
     game -> add(new VerticalWall(763,563,game));
 
 
-
-
-
-
-    for (int i = 20; i<795; i+=20) {
-        game -> add(new PointPill(i,22,game));
+    for (int i = 22; i<795; i+=20) {
+        for (int j = 22; j<630; j+=20){
+         game -> add(new PointPill(i,j,game));
+        }
     }
-    for (int i = 20; i<795; i+=20) {
-        game -> add(new PointPill(i,625,game));
-    }
-    
-    for (int i = 42; i<620; i+=20) {
-        game -> add(new PointPill(22,i,game));
-    }
-    
-    for (int i = 42; i<620; i+=20) {
-        game -> add(new PointPill(785,i,game));
-    }
-    
     
     game -> add(new Player(3, 12, 12, playerImages, game));
     

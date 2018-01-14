@@ -30,11 +30,13 @@ public:
     int getPoints() override{return 0;}
     
     std::string getType() override;
+    void resetCount()override{randomization();}
     
 private:
     int count = 0;
     int countDirection = 0;
     int direction;
+    
     
 };
 

@@ -57,9 +57,6 @@ void Game::run(){
         
         handleEvent();
         update();
-        
-        pointCounter();
-        
         render();
         
         
@@ -146,40 +143,31 @@ void Game::handleEvent(){
             
         case SDL_KEYDOWN:
             int direction;
-            cout << "Key pushed" << endl;
             switch(event.key.keysym.sym ){
                 case SDLK_UP:
                     direction = 2;
                     player -> makeMove(direction);
-                    cout << "upkey" << endl;
                     break;
                     
                 case SDLK_DOWN:
                     direction = 4;
                     player ->makeMove(direction);
-                    cout << "downkey" << endl;
                     break;
                     
                 case SDLK_LEFT:
                     direction = 1;
                     player -> makeMove(direction);
-                    cout << "leftkey" << endl;
                     break;
                     
                 case SDLK_RIGHT:
                     direction = 3;
                     player ->makeMove(direction);
-                    cout << "rightkey" << endl;
                     break;
                     
                 case SDLK_SPACE:
-                    cout << "Space pressed" << endl;
-                    player -> shoot();
                     break;
                     
                 case SDLK_p:
-                    
-                    cout << "p button pressed"<< endl;
                     break;
                     
                 default:
@@ -191,12 +179,9 @@ void Game::handleEvent(){
             break;
             
         case SDL_MOUSEBUTTONDOWN:
-            cout << "mouseclicked down" << endl;
-            //shoot
             break;
             
         case SDL_MOUSEBUTTONUP:
-            cout << "mouseclicked up" << endl;
             break;
             
         default:
@@ -214,31 +199,51 @@ void Game::update(){
         for(unsigned j = i+1; j < spriteList.size(); j++){
             if (collision(spriteList.at(i), spriteList.at(j)) == true){
                 
-                
                 string sprite1 = spriteList.at(i)->getType();
                 string sprite2 = spriteList.at(j)->getType();
                 
                 if((sprite1 == "PointPill" || sprite2 == "PointPill") && (sprite1 == "Player" || sprite2 == "Player")){
-                    
-                    // pointPill disappear
+                
                     if(sprite1 =="PointPill"){
                         removeSprite.push_back(spriteList.at(i));
                         spriteList.at(j) -> setPoints();
-                    
+                        
                     }else{
                         removeSprite.push_back(spriteList.at(j));
                         spriteList.at(j) -> setPoints();
                     }
+                    pointCounter();
+                    
                 }else if((sprite1 == "Enemy" && sprite2 == "Player") || (sprite1 == "Player" && sprite2 == "Enemy")){
                     
                     Sprite* spriteVec1 = spriteList.at(i);
                     spriteVec1 -> handleCollision();
                     
-                    cout << "GAME OVER" << endl;
-                    
                     gameOver = true;
                     
                 }else if((sprite1 == "Enemy" && sprite2 == "PointPill") || (sprite1 == "PointPill" && sprite2 == "Enemy")){
+                    
+                    
+                }else if((sprite1 == "PointPill" && sprite2 == "VerticalWall")||(sprite1 == "VerticalWall" && sprite2 == "PointPill")||(sprite1 == "PointPill" && sprite2 == "HorizontalWall")||(sprite1 == "HorizontalWall" && sprite2 == "PointPill")){
+                    
+                    if(sprite1 == "PointPill"){
+                        removeSprite.push_back(spriteList.at(i));
+                    }else{
+                        removeSprite.push_back(spriteList.at(j));
+                    }
+                    
+                }else if((sprite1 == "Enemy" && sprite2 == "VerticalWall")||(sprite1 == "VerticalWall" && sprite2 == "Enemy")||(sprite1 == "Enemy" && sprite2 == "HorizontalWall")||(sprite1 == "HorizontalWall" && sprite2 == "Enemy")){
+                    
+                    if(sprite1 == "Enemy"){
+                        Sprite* spriteVec1 = spriteList.at(i);
+                        spriteVec1 -> handleCollision();
+                        spriteVec1 -> resetCount();
+                        
+                    }else{
+                        Sprite* spriteVec2 = spriteList.at(j);
+                        spriteVec2 -> handleCollision();
+                        spriteVec2 -> resetCount();
+                    }
                     
                     
                 }else{
@@ -248,7 +253,6 @@ void Game::update(){
                     Sprite* spriteVec2 = spriteList.at(j);
                     spriteVec2 -> handleCollision();
                 }
-                
             }
         }
     }
@@ -262,7 +266,9 @@ void Game::render(){
     for(auto const& sprite: spriteList){
         sprite -> drawSprite(renderer);
     }
+    
     SDL_RenderCopy(renderer, pointTexture, NULL, &rectPoint);
+    
     
     SDL_RenderPresent(renderer);
 }
