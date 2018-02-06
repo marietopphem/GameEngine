@@ -14,7 +14,7 @@
 
 PointPill::PointPill(int xpos, int ypos, Game *game) : StaticSprite( xpos, ypos){
     
-    SDL_Surface *box = SDL_LoadBMP("/Users/marietopphem/Desktop/PacmanPointPill.bmp");
+    SDL_Surface *box = SDL_LoadBMP("/Users/marietopphem/Desktop/Data-ochSystemvetenskap år3/Prog3/C++/Inlupp/Pacman/PacmanPointPill.bmp");
     rect = {xpos, ypos, box -> w, box->h};
     SDL_Texture *boxTx = SDL_CreateTextureFromSurface(game -> getRenderer(), box);
     SDL_FreeSurface(box);

@@ -15,7 +15,7 @@
 
 VerticalWall::VerticalWall(int xpos, int ypos, Game *game) : StaticSprite( xpos, ypos){
     
-    SDL_Surface *wall = IMG_Load("/Users/marietopphem/Desktop/PacmanVerticalWall.png");
+    SDL_Surface *wall = IMG_Load("/Users/marietopphem/Desktop/Data-ochSystemvetenskap år3/Prog3/C++/Inlupp/Pacman/PacmanVerticalWall.png");
     rect = {xpos, ypos, wall -> w, wall->h};
     SDL_Texture *wallTx = SDL_CreateTextureFromSurface(game -> getRenderer(), wall);
     SDL_FreeSurface(wall);

@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
     vector<SDL_Texture*> enemyImages;
     vector<SDL_Texture*> playerImages;
     
-    SDL_Surface* pacman = IMG_Load("/Users/marietopphem/Desktop/Pacman.png");
+    SDL_Surface* pacman = IMG_Load("/Users/marietopphem/Desktop/Data-ochSystemvetenskap år3/Prog3/C++/Inlupp/Pacman/Pacman.png");
     Uint32 white = SDL_MapRGB(pacman->format, 255, 255, 255);
     SDL_SetColorKey(pacman, true, white);
     SDL_Texture* pacmanTx = SDL_CreateTextureFromSurface(game -> getRenderer(), pacman);
@@ -40,7 +40,7 @@ int main(int argc, const char * argv[]) {
     
     playerImages.push_back(pacmanTx);
     
-    SDL_Surface* pacmanLeft = IMG_Load("/Users/marietopphem/Desktop/PacmanLeft.png");
+    SDL_Surface* pacmanLeft = IMG_Load("/Users/marietopphem/Desktop/Data-ochSystemvetenskap år3/Prog3/C++/Inlupp/Pacman/PacmanLeft.png");
     Uint32 whiteLeft = SDL_MapRGB(pacmanLeft->format, 255, 255, 255);
     SDL_SetColorKey(pacmanLeft, true, whiteLeft);
     SDL_Texture* pacmanLeftTx = SDL_CreateTextureFromSurface(game -> getRenderer(), pacmanLeft);
@@ -48,7 +48,7 @@ int main(int argc, const char * argv[]) {
     
     playerImages.push_back(pacmanLeftTx);
     
-    SDL_Surface* pacmanUp = IMG_Load("/Users/marietopphem/Desktop/PacmanUp.png");
+    SDL_Surface* pacmanUp = IMG_Load("/Users/marietopphem/Desktop/Data-ochSystemvetenskap år3/Prog3/C++/Inlupp/Pacman/PacmanUp.png");
     Uint32 whiteUp = SDL_MapRGB(pacmanUp->format, 255, 255, 255);
     SDL_SetColorKey(pacmanUp, true, whiteUp);
     SDL_Texture* pacmanUpTx = SDL_CreateTextureFromSurface(game -> getRenderer(), pacmanUp);
@@ -56,7 +56,7 @@ int main(int argc, const char * argv[]) {
     
     playerImages.push_back(pacmanUpTx);
     
-    SDL_Surface* pacmanRight = IMG_Load("/Users/marietopphem/Desktop/PacmanRight.png");
+    SDL_Surface* pacmanRight = IMG_Load("/Users/marietopphem/Desktop/Data-ochSystemvetenskap år3/Prog3/C++/Inlupp/Pacman/PacmanRight.png");
     Uint32 whiteRight = SDL_MapRGB(pacmanRight->format, 255, 255, 255);
     SDL_SetColorKey(pacmanRight, true, whiteRight);
     SDL_Texture* pacmanRightTx = SDL_CreateTextureFromSurface(game -> getRenderer(), pacmanRight);
@@ -64,7 +64,7 @@ int main(int argc, const char * argv[]) {
     
     playerImages.push_back(pacmanRightTx);
     
-    SDL_Surface* pacmanDown = IMG_Load("/Users/marietopphem/Desktop/PacmanDown.png");
+    SDL_Surface* pacmanDown = IMG_Load("/Users/marietopphem/Desktop/Data-ochSystemvetenskap år3/Prog3/C++/Inlupp/Pacman/PacmanDown.png");
     Uint32 whiteDown = SDL_MapRGB(pacmanDown->format, 255, 255, 255);
     SDL_SetColorKey(pacmanDown, true, whiteDown);
     SDL_Texture* pacmanDownTx = SDL_CreateTextureFromSurface(game -> getRenderer(), pacmanDown);

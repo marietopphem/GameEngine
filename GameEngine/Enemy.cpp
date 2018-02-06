@@ -21,7 +21,7 @@ using namespace std;
 
 Enemy::Enemy( int life, int xpos, int ypos, vector<SDL_Texture*> images, Game *game) : DynamicSprite(life, xpos, ypos, images){
     
-    SDL_Surface* enemy = IMG_Load("/Users/marietopphem/Desktop/PacmanGhostGreenBlue.png");
+    SDL_Surface* enemy = IMG_Load("/Users/marietopphem/Desktop/Data-ochSystemvetenskap år3/Prog3/C++/Inlupp/Pacman/PacmanGhostGreenBlue.png");
     rect = {xpos,ypos,enemy -> w/20, enemy ->h/20 };
     Uint32 white = SDL_MapRGB(enemy->format, 255, 255, 255);
     SDL_SetColorKey(enemy, true, white);

@@ -33,7 +33,7 @@ void Player::makeMove(int inputDirection){
 
 Player::Player(int life, int xpos, int ypos, vector<SDL_Texture*>images, Game *game): DynamicSprite( life, xpos, ypos, images){
     
-    SDL_Surface* pacman = IMG_Load("/Users/marietopphem/Desktop/PacmanRight.png");
+    SDL_Surface* pacman = IMG_Load("/Users/marietopphem/Desktop/Data-ochSystemvetenskap år3/Prog3/C++/Inlupp/Pacman/PacmanRight.png");
     rect = {xpos,ypos,pacman -> w/2, pacman ->h/2 };
     Uint32 white = SDL_MapRGB(pacman->format, 255, 255, 255);
     SDL_SetColorKey(pacman, true, white);
